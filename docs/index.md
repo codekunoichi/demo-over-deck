@@ -13,6 +13,10 @@ A shareable demo URL teaches more than twenty slides.
 This is not a coding workshop.
 This is a venture learning acceleration pattern that helps teams validate and communicate value earlier through working demos.
 
+## What this seminar is not
+I am not here to turn MBA students into software engineers.
+I am here to help them become product managers who can build their own prototypes so they can stop guessing and start testing.
+
 ## Who this is for
 - Faculty teaching entrepreneurship, new venture design, and venture labs
 - Student founders who want to pitch with a working prototype instead of a deck
