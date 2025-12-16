@@ -13,6 +13,11 @@ This is a venture learning acceleration pattern that helps teams validate and co
 - Faculty teaching entrepreneurship, new venture design, and venture labs
 - Student founders who want to pitch with a working prototype instead of a deck
 
-## Pages
-- Faculty brief: /faculty/
-- Student workshop: /students/
+## Navigation
+- [Faculty brief](./faculty/)
+- [Student workshop](./students/)
+
+## Optional quick links
+- [Origin story and why now](./faculty/#origin-story)
+- [Guardrails](./faculty/#guardrails)
+- [Student workshop format](./students/#student-workshop)
