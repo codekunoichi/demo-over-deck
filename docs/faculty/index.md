@@ -1,4 +1,20 @@
+## Navigation
+- [Home](../)
+- [Faculty brief](./)
+- [Student workshop](../students/)
+
+---
+
 # Faculty Brief
+
+## Table of contents
+- [Purpose](#purpose)
+- [Origin story](#origin-story)
+- [The behavior change](#the-behavior-change)
+- [Method](#method)
+- [What done looks like](#what-done-looks-like)
+- [Guardrails](#guardrails)
+- [January student workshop preview](#january-student-workshop-preview)
 
 ## Purpose
 Help student teams replace slide-driven ambiguity with a working demo URL by mid-term.
