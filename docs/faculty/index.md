@@ -1,10 +1,3 @@
-## Navigation
-- [Home](../)
-- [Faculty brief](./)
-- [Student workshop](../students/)
-
----
-
 # Faculty Brief
 
 ## Table of contents
@@ -43,3 +36,10 @@ A working demo that walks the core workflow, plus at least one piece of external
 
 ## January student workshop preview
 A hands-on session that teaches the same method, followed by an optional 48-hour challenge.
+
+## Navigation
+- [Home](../)
+- [Faculty brief](./)
+- [Student workshop](../students/)
+
+---
