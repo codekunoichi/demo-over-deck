@@ -1,4 +1,12 @@
-# Faculty Brief
+---
+title: Faculty Brief
+---
+
+## Navigation
+- [Home](../)
+- [Student workshop](../students/)
+
+---
 
 ## Table of contents
 - [Purpose](#purpose)
@@ -25,7 +33,7 @@ By mid-term, every team produces a working demo URL that becomes the artifact fo
 3. Deploy to a shareable URL
 4. Iterate based on feedback
 
-## What “done” looks like
+## What done looks like
 A working demo that walks the core workflow, plus at least one piece of external feedback that informed a change.
 
 ## Guardrails
@@ -37,9 +45,3 @@ A working demo that walks the core workflow, plus at least one piece of external
 ## January student workshop preview
 A hands-on session that teaches the same method, followed by an optional 48-hour challenge.
 
-## Navigation
-- [Home](../)
-- [Faculty brief](./)
-- [Student workshop](../students/)
-
----

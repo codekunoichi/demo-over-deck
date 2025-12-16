@@ -1,3 +1,7 @@
+---
+title: Demo Over Deck
+---
+
 # From Slide Deck to Demo URL
 
 A short seminar for entrepreneurship faculty and students on using AI-assisted prototyping to accelerate venture learning.

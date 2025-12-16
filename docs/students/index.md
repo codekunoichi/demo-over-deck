@@ -1,5 +1,13 @@
 
-# Student Workshop
+---
+title: Student Workshop
+---
+
+## Navigation
+- [Home](../)
+- [Faculty brief](../faculty/)
+
+---
 
 ## Table of contents
 - [Purpose](#purpose)
@@ -84,9 +92,3 @@ Complexity is not rewarded. Learning and clarity are.
 - Disclose which AI tools were used
 - Grade thinking and iteration, not code complexity
 
-## Navigation
-- [Home](../)
-- [Faculty brief](../faculty/)
-- [Student workshop](./)
-
----
