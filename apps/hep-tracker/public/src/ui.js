@@ -42,6 +42,23 @@ function generateWeekDates(startDate) {
     return dates;
 }
 
+function generateRecentWeekDates(endDate) {
+    const dates = [];
+    const end = new Date(endDate + 'T00:00:00');
+
+    // Generate 7 days ending with endDate (going backwards)
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(end);
+        date.setDate(end.getDate() - i);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        dates.push(`${year}-${month}-${day}`);
+    }
+
+    return dates;
+}
+
 function renderComplianceGrid(patientId) {
     const tbody = document.getElementById('compliance-body');
     const thead = document.querySelector('.compliance-grid thead tr');
@@ -64,13 +81,23 @@ function renderComplianceGrid(patientId) {
 
     let weekDates;
     if (uniqueDates.length > 0) {
-        weekDates = generateWeekDates(uniqueDates[0]);
+        // Use the most recent date (last in sorted array) or today, whichever is later
+        const mostRecentLogDate = uniqueDates[uniqueDates.length - 1];
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const todayStr = `${year}-${month}-${day}`;
+
+        // Use whichever is later: most recent log date or today
+        const endDate = mostRecentLogDate > todayStr ? mostRecentLogDate : todayStr;
+        weekDates = generateRecentWeekDates(endDate);
     } else {
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
-        weekDates = generateWeekDates(`${year}-${month}-${day}`);
+        weekDates = generateRecentWeekDates(`${year}-${month}-${day}`);
     }
 
     thead.innerHTML = '<th class="exercise-header">Exercise</th>';
