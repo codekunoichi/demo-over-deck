@@ -1,3 +1,6 @@
+> This document is intentionally raw.
+> It reflects the actual prompts, mistakes, and fixes used to build a working MVP.
+
 ## Step 1: Static HTML Weekly Tracker
 - First paste the intial-promopt-template.md
 
@@ -174,3 +177,68 @@ Deliverable checklist
 
 Start by implementing: navigation + patient logger UI skeleton, then Netlify functions, then wire save, then weekly refresh.
 
+
+## Step 4 - Polish
+
+Observing the Date was fixed in demo to 12/01 We updated the function requesting rolling current week framing.
+
+```
+ Its working, [Image #1] One tiny fix needed is when I save it displays from 12/01, so its dropping the 12/17, may be we display a 
+rolling window of 30 days? [Image #2] 
+```
+
+The Image #1 is the CSV displaying the 12/17 log entires. Image #2 displaying the 12/01 Picture.
+
+## Reflection Notes
+
+- Think longer yourself on what instructions to give so that its clear to ClaudeCode on your intent.
+- The efficacy and accuracy of your code will be directly proportional to clarity of the prompt you provided.
+
+## Tips and Tricks
+
+- Use ChatGPT to brainstorming partner on crafting structured prompt for Claude Code, instead of "Write me a CSV for patient logger and save it." 
+- The time you put in your upfront thinking will save a lot of time in actual workflow clarity when Claude delivers the HTML mockup
+- Netlify is a new tool and you will find yourself in a lot of wierd error situation. Logs are your friends. Don't be intimidated by them, they are here to help you. Browse and click around Netlify Project and links you have to familiarize yourself.
+- Debug one small issue at a time not the whole thing broken.
+
+## Mental Models That Finally Clicked
+
+1. Netlify is not "just hosting"
+   - Static files and serverless functions live in different worlds
+   - You must be explicit about how the browser reaches functions
+
+2. Logs are not errors
+   - Logs are evidence
+   - A 404 is information, not failure
+
+3. Do not debug infrastructure first
+   - Hit the endpoint directly in the browser
+   - If the URL works there, the bug is in your frontend assumptions
+
+4. Fix contracts, not symptoms
+   - Redirects hide broken mental models
+   - Correct paths teach the system how to behave
+
+## What We Deliberately Did NOT Do
+
+- We did not add authentication
+- We did not add a backend database
+- We did not introduce frameworks
+- We did not optimize for scale
+
+This demo optimizes for:
+- clarity of thought
+- correctness of flow
+- confidence in iteration
+
+Scale comes later.
+
+## If You’re Stuck
+
+Ask yourself:
+1. Can I explain what the system is supposed to do in one sentence?
+2. Can I hit the URL directly in the browser?
+3. Do I know where my data is actually stored?
+4. Am I fixing the cause or hiding the symptom?
+
+If not, stop coding and write.
