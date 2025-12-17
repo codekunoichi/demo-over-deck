@@ -117,8 +117,123 @@ function showMessage(message, type = 'info') {
     console.log(`[${type.toUpperCase()}] ${message}`);
 }
 
+// Patient Logger UI functions
+
+function renderLoggerPatientOptions() {
+    const select = document.getElementById('logger-patient-select');
+    if (!select) return;
+
+    select.innerHTML = '<option value="">Select a patient...</option>';
+
+    state.patients.forEach(patient => {
+        const option = document.createElement('option');
+        option.value = patient.PID;
+        option.textContent = patient.PatientName;
+        select.appendChild(option);
+    });
+}
+
+function getTodayISO() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function setLoggerDate() {
+    const dateInput = document.getElementById('logger-date');
+    if (dateInput) {
+        dateInput.value = getTodayISO();
+    }
+}
+
+function renderLoggerExercises() {
+    const container = document.getElementById('logger-exercises');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    // Show all exercises from hep_list (as specified in requirements)
+    state.hepList.forEach(exercise => {
+        const row = document.createElement('div');
+        row.className = 'exercise-input-row';
+
+        const label = document.createElement('label');
+        label.textContent = exercise.ExerciseName;
+
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '0';
+        input.placeholder = '0';
+        input.dataset.hepid = exercise.HEPID;
+        input.id = `exercise-${exercise.HEPID}`;
+
+        const targetInfo = document.createElement('span');
+        targetInfo.className = 'target-info';
+        targetInfo.textContent = `Target: ${exercise.TargetMinutesPerDay} min`;
+
+        row.appendChild(label);
+        row.appendChild(input);
+        row.appendChild(targetInfo);
+
+        container.appendChild(row);
+    });
+}
+
+function switchView(viewName) {
+    // Hide all views
+    document.querySelectorAll('.view').forEach(view => {
+        view.classList.remove('active');
+    });
+
+    // Deactivate all nav tabs
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Show selected view
+    const viewElement = document.getElementById(`view-${viewName}`);
+    if (viewElement) {
+        viewElement.classList.add('active');
+    }
+
+    // Activate selected nav tab
+    const tabElement = document.getElementById(`nav-${viewName}`);
+    if (tabElement) {
+        tabElement.classList.add('active');
+    }
+}
+
+function showSaveMessage(message, type) {
+    const messageElement = document.getElementById('save-message');
+    if (!messageElement) return;
+
+    messageElement.textContent = message;
+    messageElement.className = `message ${type} show`;
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        messageElement.classList.remove('show');
+    }, 5000);
+}
+
+function hideSaveMessage() {
+    const messageElement = document.getElementById('save-message');
+    if (messageElement) {
+        messageElement.classList.remove('show');
+    }
+}
+
 export {
     renderPatientOptions,
     renderComplianceGrid,
-    showMessage
+    showMessage,
+    renderLoggerPatientOptions,
+    setLoggerDate,
+    renderLoggerExercises,
+    switchView,
+    showSaveMessage,
+    hideSaveMessage,
+    getTodayISO
 };

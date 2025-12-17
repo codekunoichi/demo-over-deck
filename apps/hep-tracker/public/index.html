@@ -10,10 +10,15 @@
     <div class="container">
         <header>
             <h1>HEP Tracker</h1>
-            <p class="subtitle">Weekly Compliance View</p>
+            <nav class="nav-tabs">
+                <button id="nav-weekly" class="nav-tab active">Weekly Tracker</button>
+                <button id="nav-logger" class="nav-tab">Patient Logger</button>
+            </nav>
         </header>
 
-        <div class="patient-selector">
+        <!-- Weekly Tracker View -->
+        <div id="view-weekly" class="view active">
+            <div class="patient-selector">
             <label for="patient-select">Patient:</label>
             <select id="patient-select">
                 <option value="">Select a patient...</option>
@@ -52,6 +57,35 @@
             <div class="legend-item">
                 <span class="legend-box empty"></span>
                 <span>No Data</span>
+            </div>
+        </div>
+        </div>
+
+        <!-- Patient Logger View -->
+        <div id="view-logger" class="view">
+            <div class="logger-section">
+                <h2>Log Daily Exercise</h2>
+
+                <div class="form-group">
+                    <label for="logger-patient-select">Patient:</label>
+                    <select id="logger-patient-select">
+                        <option value="">Select a patient...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="logger-date">Date:</label>
+                    <input type="date" id="logger-date" readonly>
+                </div>
+
+                <div id="logger-exercises" class="exercises-list">
+                    <!-- Exercise inputs will be dynamically generated -->
+                </div>
+
+                <div class="form-actions">
+                    <button id="save-log-btn" class="btn-primary">Save</button>
+                    <div id="save-message" class="message"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,16 @@
+{
+  "name": "hep-tracker",
+  "version": "1.0.0",
+  "description": "Home Exercise Program Tracker - Demo Application",
+  "type": "module",
+  "scripts": {
+    "dev": "cd public && python3 -m http.server 8080",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^7.0.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "MIT"
+}
