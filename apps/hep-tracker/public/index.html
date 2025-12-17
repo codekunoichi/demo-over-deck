@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEP Tracker - Weekly Compliance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HEP Tracker</h1>
+            <p class="subtitle">Weekly Compliance View</p>
+        </header>
+
+        <div class="patient-selector">
+            <label for="patient-select">Patient:</label>
+            <select id="patient-select">
+                <option value="">Select a patient...</option>
+            </select>
+        </div>
+
+        <div class="compliance-grid-container">
+            <table class="compliance-grid">
+                <thead>
+                    <tr>
+                        <th class="exercise-header">Exercise</th>
+                        <th class="date-header">12/01</th>
+                        <th class="date-header">12/02</th>
+                        <th class="date-header">12/03</th>
+                        <th class="date-header">12/04</th>
+                        <th class="date-header">12/05</th>
+                        <th class="date-header">12/06</th>
+                        <th class="date-header">12/07</th>
+                    </tr>
+                </thead>
+                <tbody id="compliance-body">
+                    <!-- Table rows will be dynamically generated from CSV data -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-box green"></span>
+                <span>Compliant (Minutes >= Target)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-box red"></span>
+                <span>Not Compliant</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-box empty"></span>
+                <span>No Data</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>
