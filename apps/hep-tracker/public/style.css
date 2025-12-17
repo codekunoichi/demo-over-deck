@@ -239,6 +239,15 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: white;
+    cursor: text;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group input[type="date"] {
+    cursor: pointer;
 }
 
 .form-group input[readonly] {
