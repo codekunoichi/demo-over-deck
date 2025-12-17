@@ -2,7 +2,7 @@
 > It reflects the actual prompts, mistakes, and fixes used to build a working MVP.
 
 ## Step 1: Static HTML Weekly Tracker
-- First paste the intial-promopt-template.md
+- First paste the intial-prompt-template.md
 
 ## Step 2: Dynamic Patient Weekly Tracker and onchange function
 
@@ -56,6 +56,7 @@ Deliverable:
 
 ## Step 3 Patient Logger
 
+```
 Claude Code Prompt: Patient Logger with Real Save on Netlify + Weekly Tracker Refresh
 
 Read this carefully. Do not add features not listed. Ask clarifying questions only if something blocks implementation.
@@ -109,7 +110,7 @@ Endpoints:
 	•	POST /.netlify/functions/save_daily_log
 	•	accepts JSON payload:
 
-```
+
 {
   "pid": "P001",
   "date": "2025-12-04",
@@ -118,7 +119,7 @@ Endpoints:
     {"hepid": "H002", "minutes": 15}
   ]
 }
-```
+
 
 
 	•	server must upsert rows (PID + Date + HEPID unique). If row exists, overwrite MinutesCompleted; else append.
@@ -176,6 +177,7 @@ Deliverable checklist
 	•	Local mode works without persistence and shows a friendly message on Save
 
 Start by implementing: navigation + patient logger UI skeleton, then Netlify functions, then wire save, then weekly refresh.
+```
 
 
 ## Step 4 - Polish
