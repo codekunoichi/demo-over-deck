@@ -41,7 +41,7 @@ async function loadCSVData(filePath) {
 async function loadDailyLogData() {
     // Try Netlify function endpoint first
     try {
-        const response = await fetch('/.netlify/functions/get_daily_log');
+        const response = await fetch('/get_daily_log');
         if (response.ok) {
             const csvText = await response.text();
             return parseCSV(csvText);
@@ -136,7 +136,7 @@ function getSelectedPatient() {
 // Save daily log to Netlify function
 async function saveDailyLog(pid, date, entries) {
     try {
-        const response = await fetch('/.netlify/functions/save_daily_log', {
+        const response = await fetch('/save_daily_log', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
