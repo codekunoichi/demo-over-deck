@@ -62,6 +62,7 @@ This sketch acted as the *source of truth* for intent and scope.
 ![HEP Tracker Early Sketch](screenshots/sketch.png)
 Figure: Original spreadsheet sketch used to reason about entities, views, and storage before implementation.
 
+[Original GoogleSheet Thinking Canvas](https://docs.google.com/spreadsheets/d/1l4T8WykoutZyJpT8Mg-jqTIzlhMIaFyouh-W4Rl9mVM/edit?usp=sharing)
 ---
 
 ## Demo Flow (What We Show Live)
@@ -136,6 +137,11 @@ This section covers:
 - how to debug 404s and miswired endpoints
 
 The mistakes are part of the lesson.
+
+### 3. Big Reveal (Final App)
+
+➡️ **[Live Application Home Exercise Program Tacker](https://splendorous-beignet-9d65a1.netlify.app/)**
+
 
 ---
 
