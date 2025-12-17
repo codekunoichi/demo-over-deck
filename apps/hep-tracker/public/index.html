@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEP Tracker - Weekly Compliance</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -19,46 +21,46 @@
         <!-- Weekly Tracker View -->
         <div id="view-weekly" class="view active">
             <div class="patient-selector">
-            <label for="patient-select">Patient:</label>
-            <select id="patient-select">
-                <option value="">Select a patient...</option>
-            </select>
-        </div>
+                <label for="patient-select">Patient:</label>
+                <select id="patient-select">
+                    <option value="">Select a patient...</option>
+                </select>
+            </div>
 
-        <div class="compliance-grid-container">
-            <table class="compliance-grid">
-                <thead>
-                    <tr>
-                        <th class="exercise-header">Exercise</th>
-                        <th class="date-header">12/01</th>
-                        <th class="date-header">12/02</th>
-                        <th class="date-header">12/03</th>
-                        <th class="date-header">12/04</th>
-                        <th class="date-header">12/05</th>
-                        <th class="date-header">12/06</th>
-                        <th class="date-header">12/07</th>
-                    </tr>
-                </thead>
-                <tbody id="compliance-body">
-                    <!-- Table rows will be dynamically generated from CSV data -->
-                </tbody>
-            </table>
-        </div>
+            <div class="compliance-grid-container">
+                <table class="compliance-grid">
+                    <thead>
+                        <tr>
+                            <th class="exercise-header">Exercise</th>
+                            <th class="date-header">12/01</th>
+                            <th class="date-header">12/02</th>
+                            <th class="date-header">12/03</th>
+                            <th class="date-header">12/04</th>
+                            <th class="date-header">12/05</th>
+                            <th class="date-header">12/06</th>
+                            <th class="date-header">12/07</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compliance-body">
+                        <!-- Table rows will be dynamically generated from CSV data -->
+                    </tbody>
+                </table>
+            </div>
 
-        <div class="legend">
-            <div class="legend-item">
-                <span class="legend-box green"></span>
-                <span>Compliant (Minutes >= Target)</span>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-box green"></span>
+                    <span>Compliant (Minutes >= Target)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-box red"></span>
+                    <span>Not Compliant</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-box empty"></span>
+                    <span>No Data</span>
+                </div>
             </div>
-            <div class="legend-item">
-                <span class="legend-box red"></span>
-                <span>Not Compliant</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-box empty"></span>
-                <span>No Data</span>
-            </div>
-        </div>
         </div>
 
         <!-- Patient Logger View -->
@@ -88,8 +90,91 @@
                 </div>
             </div>
         </div>
+
+        <!-- Documentation Section -->
+        <div class="documentation">
+            <h2>About This Application</h2>
+
+            <div class="doc-section">
+                <h3>Purpose</h3>
+                <p>
+                    The HEP (Home Exercise Program) Tracker is a demo application designed for Physical Therapists
+                    and patients to track exercise compliance between clinic visits. This demonstrates how simple,
+                    patient-friendly tools can provide visibility into whether prescribed exercises are being completed.
+                </p>
+            </div>
+
+            <div class="doc-section">
+                <h3>Features</h3>
+                <div class="feature-list">
+                    <div class="feature">
+                        <strong>Weekly Tracker:</strong>
+                        <p>View compliance in a calendar-style grid with color-coded status (green = compliant, red =
+                            not compliant, gray = no data).</p>
+                    </div>
+                    <div class="feature">
+                        <strong>Patient Logger:</strong>
+                        <p>Log daily exercise minutes for any patient. Data persists when deployed to Netlify using Blob
+                            storage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doc-section">
+                <h3>How to Use</h3>
+                <ol>
+                    <li><strong>Weekly Tracker:</strong> Select a patient from the dropdown to view their compliance
+                        data for the past week.</li>
+                    <li><strong>Patient Logger:</strong> Click the "Patient Logger" tab, select a patient, enter minutes
+                        completed for each exercise, and click Save.</li>
+                    <li><strong>After Saving:</strong> The app automatically returns to the Weekly Tracker view showing
+                        your newly logged data.</li>
+                </ol>
+            </div>
+
+            <div class="doc-section">
+                <h3>Why This Exists</h3>
+                <p>
+                    Current Electronic Health Record (EHR) systems often lack simple, patient-friendly compliance
+                    tracking
+                    for home exercise programs. This demo shows how a lightweight tool can bridge this gap without
+                    requiring
+                    complex EHR integration, billing, or PHI handling.
+                </p>
+                <p>
+                    <strong>This is a demonstration application</strong> to illustrate product thinking and technical
+                    feasibility,
+                    not a production-ready system.
+                </p>
+            </div>
+
+            <div class="doc-section tech-info">
+                <h3>How This Was Built</h3>
+                <p>
+                    This application was built using <strong>AI-assisted development</strong> with
+                    <a href="https://claude.com/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a>,
+                    an AI-powered coding assistant that helps developers build applications faster through natural
+                    language instructions and intelligent code generation.
+                </p>
+                <p>
+                    <strong>Tech Stack:</strong> Vanilla JavaScript (no frameworks), CSV data sources, Netlify
+                    Functions,
+                    and Netlify Blob storage for persistence.
+                </p>
+            </div>
+
+            <div class="doc-footer">
+                <p>
+                    📖 <a href="README.md" target="_blank">Full Documentation</a> |
+                    🧪 <a href="../TESTING.md" target="_blank">Testing Guide</a> |
+                    🤖 <a href="https://codekunoichi.github.io/demo-over-deck/" target="_blank"
+                        rel="noopener noreferrer">demo-over-deck</a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="./src/app.js"></script>
 </body>
+
 </html>
