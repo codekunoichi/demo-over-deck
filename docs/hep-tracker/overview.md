@@ -101,3 +101,49 @@ You need:
 - something users can touch
 
 That is what replaces guessing with learning.
+
+---
+
+## How This Demo Was Built (For Students)
+
+This demo is intentionally documented end-to-end so students can see **how thinking turns into working software**.
+
+### 1. Prompting the Build (Claude Code)
+
+The full, unedited Claude Code prompt sequence used to build this app — including course corrections and constraints — is documented here:
+
+➡️ **[Claude Prompt Sequence](claude_prompt_sequence.md)**
+
+This shows:
+- how intent was communicated
+- how scope was enforced
+- how iteration happened without feature creep
+
+Students are encouraged to study the prompts, not just the code.
+
+### 2. Deployment & Debugging (Netlify)
+
+This app was deployed live using Netlify, including serverless functions and persistence.
+
+The full deployment walkthrough — including **what broke, why it broke, and how it was fixed** — is documented here:
+
+➡️ **[Netlify Deployment & Debugging Notes](netlify.md)**
+
+This section covers:
+- correct folder structure
+- function routing pitfalls
+- local vs hosted behavior
+- how to debug 404s and miswired endpoints
+
+The mistakes are part of the lesson.
+
+---
+
+## Why These Docs Matter
+
+Most demos fail not because of bad ideas, but because teams:
+- skip documenting intent
+- hide the messy middle
+- only show the polished result
+
+This project leaves the thinking visible — on purpose.
