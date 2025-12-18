@@ -1,5 +1,9 @@
 import { getStore } from '@netlify/blobs';
 
+export const config = {
+    path: "/save_shift_note"
+};
+
 export default async (req, context) => {
     if (req.method !== 'POST') {
         return new Response(JSON.stringify({ error: 'Method not allowed' }), {
@@ -24,7 +28,11 @@ export default async (req, context) => {
             });
         }
 
-        const store = getStore('shift-notes');
+        const store = getStore({
+            name: 'shift-notes',
+            siteID: context.site.id,
+            token: context.token
+        });
 
         let csvContent = await store.get('shift_notes.csv');
 
@@ -58,7 +66,7 @@ export default async (req, context) => {
     } catch (error) {
         console.error('Error saving shift note:', error);
 
-        return new Response(JSON.stringify({ error: 'Failed to save note' }), {
+        return new Response(JSON.stringify({ error: 'Failed to save note', message: error.message }), {
             status: 500,
             headers: {
                 'Content-Type': 'application/json',
