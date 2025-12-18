@@ -52,7 +52,8 @@ export class AppState {
 
     async loadShiftNotesLocal() {
         try {
-            const response = await fetch('/data/shift_notes.csv');
+            const timestamp = new Date().getTime();
+            const response = await fetch(`/data/shift_notes.csv?t=${timestamp}`);
             const csvText = await response.text();
             this.shiftNotes = this.parseCSV(csvText);
         } catch (error) {

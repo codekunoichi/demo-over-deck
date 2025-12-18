@@ -23,20 +23,21 @@ export class UI {
             localModeAlert: document.getElementById('local-mode-alert'),
             successMessage: document.getElementById('success-message'),
             errorMessage: document.getElementById('error-message'),
+            loadingMessage: document.getElementById('loading-message'),
             navButtons: document.querySelectorAll('.nav-btn')
         };
     }
 
     setupNavigation() {
         this.elements.navButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', async () => {
                 const viewName = btn.dataset.view;
-                this.switchView(viewName);
+                await this.switchView(viewName);
             });
         });
     }
 
-    switchView(viewName) {
+    async switchView(viewName) {
         this.elements.navButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.view === viewName);
         });
@@ -45,6 +46,9 @@ export class UI {
         this.elements.viewList.classList.toggle('active', viewName === 'list');
 
         if (viewName === 'list') {
+            this.elements.loadingMessage.style.display = 'block';
+            await this.state.loadShiftNotes();
+            this.elements.loadingMessage.style.display = 'none';
             this.renderNotesList();
         }
 
@@ -178,7 +182,7 @@ export class UI {
     showEmptyState(message) {
         this.elements.notesTableContainer.innerHTML = `
             <div class="empty-state">
-                <div class="empty-state-icon">=Ë</div>
+                <div class="empty-state-icon">=ï¿½</div>
                 <p>${message}</p>
             </div>
         `;
@@ -223,8 +227,8 @@ export class UI {
         return div.innerHTML;
     }
 
-    switchToListView(nurseId, shiftCode) {
-        this.switchView('list');
+    async switchToListView(nurseId, shiftCode) {
+        await this.switchView('list');
 
         if (nurseId) {
             this.elements.filterNurse.value = nurseId;
