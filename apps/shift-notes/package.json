@@ -1,0 +1,17 @@
+{
+  "name": "shift-notes",
+  "version": "1.0.0",
+  "description": "Nursing Shift Notes - Teaching Demo",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required'",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
