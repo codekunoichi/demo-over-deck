@@ -33,7 +33,20 @@ export default async (req, context) => {
         let csvContent = await store.get('shift_notes.csv');
 
         if (!csvContent) {
-            csvContent = 'NoteID,PID,NID,ShiftDate,ShiftCode,A1,A2,A3,CreatedAt\n';
+            // First time: load seed data from local CSV
+            try {
+                const seedUrl = `${new URL(req.url).origin}/data/shift_notes.csv`;
+                const seedResponse = await fetch(seedUrl);
+                if (seedResponse.ok) {
+                    csvContent = await seedResponse.text();
+                    console.log('Initialized Netlify Blob with seed data from local CSV');
+                } else {
+                    csvContent = 'NoteID,PID,NID,ShiftDate,ShiftCode,A1,A2,A3,CreatedAt\n';
+                }
+            } catch (error) {
+                console.error('Error loading seed data:', error);
+                csvContent = 'NoteID,PID,NID,ShiftDate,ShiftCode,A1,A2,A3,CreatedAt\n';
+            }
         }
 
         const generatedNoteId = NoteID || generateNoteId(csvContent);
