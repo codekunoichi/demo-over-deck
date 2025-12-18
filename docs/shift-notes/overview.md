@@ -2,6 +2,14 @@
 
 # Shift Notes — Nursing Handoff Demo
 
+## Live demo
+
+You can explore the working application here:
+
+👉 [Live Shift Notes App](https://shift-notes-app.netlify.app/)
+
+Feel free to click around before or after reading the walkthrough below.
+
 ## What this demo is about
 
 Shift Notes is a **teaching-first demo** that shows how a real nursing workflow can be translated into a working application quickly, using intent-first design and lightweight tooling.
