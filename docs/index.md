@@ -25,10 +25,13 @@ This seminar shows a repeatable pattern: use AI as a *build accelerator* to crea
 
 The goal is to help founders, PMs, and students **think better by building sooner**.
 
-## Featured example: HEP Tracker
-As a concrete walkthrough, this site includes a real demo built end‑to‑end:
+## Featured examples: From spreadsheet to working demo
 
-**HEP Tracker** – a lightweight Home Exercise Program compliance tracker  
+This site includes two real, end‑to‑end demos built using the same intent‑first, AI‑assisted prototyping pattern.
+
+### 1. HEP Tracker
+A lightweight **Home Exercise Program compliance tracker**, designed to illustrate how a clinical workflow can be prototyped quickly for feedback.
+
 Built from:
 - A spreadsheet sketch
 - A clear intent document
@@ -44,6 +47,20 @@ You can explore:
 👉 See the full HEP Tracker walkthrough:  
 [HEP Tracker Overview](./hep-tracker/overview.md)
 
+---
+
+### 2. Nursing Shift Notes
+A **shift‑handover notes prototype** for nursing teams, focused on reducing information loss during transitions of care.
+
+This example demonstrates:
+- Translating a spreadsheet‑style handoff into app entities and views
+- Capturing and reviewing shift notes by nurse and patient
+- Using simple CSV‑based persistence with Netlify Functions
+- Closing the loop from sketch → demo → reflection
+
+👉 See the full Nursing Shift Notes walkthrough:  
+[Nursing Shift Notes Overview](./shift-notes/overview.md)
+
 ## Who this is for
 - Faculty teaching entrepreneurship, venture design, or product management
 - Students and founders who want to pitch with a working demo
@@ -57,12 +74,15 @@ You can explore:
   - Workshop flow
   - Hands‑on exercises
 - **HEP Tracker**
-  - End‑to‑end demo case study
+  - End‑to‑end demo case study for PT Usecase
+- **Nursing Station Hand Off**
+  - End-to-end demo case stufy for Nursing Patient Hand offs
 
 ## Navigation
 - [Faculty materials](./faculty/)
 - [Student workshop](./students/)
 - [HEP Tracker case study](./hep-tracker/overview.md)
+- [Nursing Shift Notes case study](./shift-notes/overview.md)
 
 ## Core idea to remember
 If your idea fits in a spreadsheet, it can probably fit in a demo.
