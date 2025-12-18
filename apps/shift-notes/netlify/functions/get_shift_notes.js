@@ -6,11 +6,7 @@ export const config = {
 
 export default async (req, context) => {
     try {
-        const store = getStore({
-            name: 'shift-notes',
-            siteID: context.site.id,
-            token: context.token
-        });
+        const store = getStore('shift-notes');
 
         let csvContent = await store.get('shift_notes.csv');
 
