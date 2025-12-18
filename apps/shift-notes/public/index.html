@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Notes - Nursing Handoff System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Shift Notes</h1>
+            <p class="subtitle">Nursing Handoff Communication System</p>
+            <nav>
+                <button class="nav-btn active" data-view="capture">Record New Note</button>
+                <button class="nav-btn" data-view="list">View Notes</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- View 1: Note Capture -->
+        <div id="view-capture" class="view active">
+            <div class="card">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Shift Change Note Capture</h2>
+
+                <div id="local-mode-alert" class="alert alert-info" style="display: none;">
+                    <strong>Local Mode:</strong> Saving requires Netlify deployment. Local mode does not persist notes.
+                </div>
+
+                <div id="success-message" class="alert alert-success" style="display: none;">
+                    Note saved successfully!
+                </div>
+
+                <div id="error-message" class="alert alert-error" style="display: none;">
+                    Error saving note. Please try again.
+                </div>
+
+                <form id="note-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shift-date">Shift Date <span class="required">*</span></label>
+                            <input type="date" id="shift-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shift-code">Shift Code <span class="required">*</span></label>
+                            <select id="shift-code" required>
+                                <option value="">Select Shift</option>
+                                <option value="Day">Day</option>
+                                <option value="Night">Night</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient">Patient <span class="required">*</span></label>
+                            <select id="patient" required>
+                                <option value="">Select Patient</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nurse">Nurse <span class="required">*</span></label>
+                            <select id="nurse" required>
+                                <option value="">Select Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="a1">What changed this shift? <span class="required">*</span></label>
+                        <textarea id="a1" required placeholder="Describe changes in patient condition, treatment, or status"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="a2">What needs attention next shift? <span class="required">*</span></label>
+                        <textarea id="a2" required placeholder="List priorities and tasks for the incoming nurse"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="a3">Any watch-outs?</label>
+                        <textarea id="a3" placeholder="Note any concerns, risks, or special considerations (optional)"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Note</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- View 2: Notes List -->
+        <div id="view-list" class="view">
+            <div class="card">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Shift Notes Review</h2>
+
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="filter-nurse">Filter by Nurse <span class="required">*</span></label>
+                        <select id="filter-nurse">
+                            <option value="">Select Nurse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-shift">Filter by Shift Code</label>
+                        <select id="filter-shift">
+                            <option value="">All Shifts</option>
+                            <option value="Day">Day</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="notes-table-container">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">=�</div>
+                        <p>Select a nurse to view shift notes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="info-section">
+        <div class="container">
+            <div class="info-card">
+                <h2>About This Teaching Demo</h2>
+
+                <div class="info-content">
+                    <div class="info-block">
+                        <h3>Purpose</h3>
+                        <p>This application is a <strong>teaching demonstration</strong> for nursing and healthcare faculty. It illustrates how shift-to-shift communication can be structured to improve patient safety and reduce handoff failures.</p>
+                        <p>The goal is to show how lightweight, intent-driven tools can reduce cognitive load during critical nurse shift changes while maintaining clarity, continuity, and safety.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h3>Why This Matters Clinically</h3>
+                        <p>Shift-to-shift handoff failures are a known source of patient safety risk. This structured approach:</p>
+                        <ul>
+                            <li>Reduces narrative overload by focusing on essential information</li>
+                            <li>Forces prioritization of what incoming nurses need to know</li>
+                            <li>Makes responsibility explicit (who wrote what, when)</li>
+                            <li>Preserves context across time and shift changes</li>
+                        </ul>
+                        <p>The goal is not documentation volume, but <strong>shared situational awareness</strong>.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h3>The Three Key Questions</h3>
+                        <p>This demo structures handoff notes around three essential questions that mirror how nurses naturally think during shift changes:</p>
+                        <ul>
+                            <li><strong>What changed this shift?</strong> — Changes in patient condition, treatment, or status</li>
+                            <li><strong>What needs attention next shift?</strong> — Priorities and tasks for the incoming nurse</li>
+                            <li><strong>Any watch-outs?</strong> — Concerns, risks, or special considerations</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h3>What This Demo Shows</h3>
+                        <ul>
+                            <li>How spreadsheet thinking translates into working data models</li>
+                            <li>Intent-first design that prevents overengineering</li>
+                            <li>Respecting real clinical workflows in software design</li>
+                            <li>Building functional MVPs rapidly using modern tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block scope">
+                        <h3>Intentionally Out of Scope</h3>
+                        <p>To keep this demo focused and teachable, the following are <strong>not included</strong>:</p>
+                        <ul>
+                            <li>Authentication or login systems</li>
+                            <li>Role-based access control</li>
+                            <li>Editing or deleting notes</li>
+                            <li>Integration with EHR systems</li>
+                            <li>HIPAA-grade security controls</li>
+                        </ul>
+                        <p class="disclaimer"><strong>Note:</strong> This is a teaching demonstration, not a production-ready EHR module.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../src/app.js"></script>
+</body>
+</html>
