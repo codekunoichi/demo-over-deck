@@ -42,7 +42,14 @@ export class AppState {
             }
 
             const data = await response.json();
-            this.shiftNotes = data.notes || [];
+            const notes = data.notes || [];
+
+            if (notes.length === 0) {
+                console.log('No notes in Netlify Blob, loading from local CSV');
+                await this.loadShiftNotesLocal();
+            } else {
+                this.shiftNotes = notes;
+            }
         } catch (error) {
             console.warn('Netlify function not available, using local mode');
             this.isLocalMode = true;
