@@ -1,0 +1,13 @@
+NoteID,PID,NID,ShiftDate,ShiftCode,A1,A2,A3,CreatedAt
+SN001,P001,N001,2024-12-12,Day,Patient ambulated with assistance twice today,Continue assisted ambulation and monitor gait stability,High fall risk when fatigued,2024-12-12T15:30:00Z
+SN002,P002,N002,2024-12-12,Night,Patient reported increased anxiety overnight,Offer reassurance and PRN anxiety support,Monitor sleep disruption,2024-12-13T02:10:00Z
+SN003,P003,N003,2024-12-13,Day,Pain well controlled with current regimen,Maintain pain management plan,Watch for breakthrough pain,2024-12-13T14:45:00Z
+SN004,P004,N004,2024-12-13,Night,Patient restless and required frequent repositioning,Continue turning schedule every 2 hours,Skin redness noted on lower back,2024-12-14T01:05:00Z
+SN005,P005,N005,2024-12-14,Day,Patient tolerated PT session with mild fatigue,Encourage hydration and rest post-therapy,Monitor for delayed soreness,2024-12-14T16:20:00Z
+SN006,P006,N001,2024-12-15,Night,Patient had elevated BP readings overnight,Recheck BP and notify provider if persistent,Patient anxious about readings,2024-12-15T03:00:00Z
+SN007,P001,N002,2024-12-16,Day,Improved mobility noted during morning rounds,Progress ambulation distance as tolerated,Continue fall precautions,2024-12-16T11:10:00Z
+SN008,P002,N003,2024-12-16,Night,Patient slept intermittently with fewer interruptions,Maintain calm environment overnight,None at this time,2024-12-17T00:40:00Z
+SN009,P003,N004,2024-12-17,Day,Patient reports stiffness in right knee,Coordinate with PT for targeted exercises,Monitor swelling,2024-12-17T15:55:00Z
+SN010,P004,N005,2024-12-18,Night,Patient more comfortable after repositioning,Continue turning schedule,Skin integrity improving,2024-12-18T02:25:00Z
+SN011,P005,N001,2024-12-18,Day,PT session completed with good participation,Advance exercises as appropriate,Patient eager to increase activity,2024-12-18T14:10:00Z
+SN012,P006,N002,2024-12-19,Day,BP stabilized during shift,Continue monitoring per protocol,Patient reassured,2024-12-19T09:35:00Z
