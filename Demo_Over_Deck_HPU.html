@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Over Deck - HPU Faculty Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #1e3a5f;
+            --accent-blue: #2d5a87;
+            --light-blue: #4a7cb5;
+            --highlight: #5ba3d9;
+            --text-dark: #1a1a2e;
+            --text-light: #ffffff;
+            --bg-light: #f8fafc;
+            --muted: #64748b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e2e8f0;
+            line-height: 1.5;
+        }
+        
+        .slide {
+            width: 960px;
+            height: 540px;
+            margin: 40px auto;
+            background: white;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            page-break-after: always;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+        
+        .slide-number-dark {
+            color: var(--muted);
+        }
+        
+        /* Slide 1 - Title */
+        .slide-1 {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .slide-1 h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        
+        .slide-1 .subtitle {
+            font-size: 22px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .slide-1 .tagline-box {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+        
+        .slide-1 .tagline {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .slide-1 .author {
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .slide-1 .role {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .slide-1 .accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--highlight);
+        }
+        
+        /* Slide 2 - The Problem */
+        .slide-2 {
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-header {
+            padding: 28px 40px 16px 40px;
+            border-bottom: 3px solid var(--primary-blue);
+            margin: 0 0 20px 0;
+        }
+        
+        .slide-header h1 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+        }
+        
+        .slide-header p {
+            font-size: 16px;
+            color: var(--muted);
+        }
+        
+        .slide-2 .content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 40px;
+        }
+        
+        .comparison-panel {
+            flex: 1;
+            padding: 28px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 260px;
+        }
+        
+        .panel-traditional {
+            background: #f1f5f9;
+            border-left: 5px solid #94a3b8;
+        }
+        
+        .panel-demo {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+        }
+        
+        .panel-label {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+        
+        .label-gray {
+            background: #94a3b8;
+            color: white;
+        }
+        
+        .label-blue {
+            background: var(--highlight);
+            color: white;
+        }
+        
+        .panel-number {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .panel-traditional .panel-number {
+            color: #64748b;
+        }
+        
+        .panel-demo .panel-number {
+            color: white;
+        }
+        
+        .panel-desc {
+            font-size: 15px;
+            margin-bottom: auto;
+        }
+        
+        .panel-traditional .panel-desc {
+            color: #475569;
+        }
+        
+        .panel-demo .panel-desc {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .panel-footnote {
+            font-size: 13px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        .panel-traditional .panel-footnote {
+            color: #94a3b8;
+        }
+        
+        .panel-demo .panel-footnote {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .vs-divider {
+            width: 50px;
+            height: 50px;
+            background: var(--highlight);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .slide-2 .footer-quote {
+            padding: 16px 40px 24px 40px;
+        }
+        
+        .quote-box {
+            background: #e2e8f0;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .quote-box p {
+            font-family: Georgia, serif;
+            font-size: 15px;
+            color: var(--primary-blue);
+            font-style: italic;
+        }
+        
+        /* Slide 3 - The Shift */
+        .slide-3 {
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-3 .content {
+            flex: 1;
+            display: flex;
+            gap: 24px;
+            padding: 16px 40px;
+        }
+        
+        .left-panel {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            background: var(--highlight);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: flex-start;
+        }
+        
+        .spreadsheet {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .spreadsheet-header {
+            display: flex;
+            background: var(--primary-blue);
+        }
+        
+        .spreadsheet-header div {
+            padding: 10px 14px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .spreadsheet-header div:first-child { flex: 0.8; }
+        .spreadsheet-header div:nth-child(2) { flex: 1.4; }
+        .spreadsheet-header div:last-child { flex: 0.6; border-right: none; }
+        
+        .spreadsheet-row {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .spreadsheet-row:last-child {
+            border-bottom: none;
+        }
+        
+        .spreadsheet-row div {
+            padding: 10px 14px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .spreadsheet-row div:first-child { 
+            flex: 0.8; 
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        .spreadsheet-row div:nth-child(2) { 
+            flex: 1.4; 
+            color: var(--muted);
+        }
+        .spreadsheet-row div:last-child { 
+            flex: 0.6; 
+            color: var(--muted);
+            border-right: none; 
+        }
+        
+        .spreadsheet-caption {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        .right-panel {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .insight-box p {
+            font-family: Georgia, serif;
+            font-size: 15px;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+        
+        .insight-box p:last-child {
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+        
+        .loop-box {
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .loop-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        
+        .loop-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        
+        .loop-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            width: 20px;
+            height: 20px;
+            background: var(--highlight);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+        
+        .slide-3 .footer {
+            padding: 8px 40px 20px 40px;
+            text-align: center;
+        }
+        
+        .slide-3 .footer p {
+            font-size: 11px;
+            color: var(--primary-blue);
+        }
+        
+        /* Slide 4 - The Loop / Live Demo */
+        .slide-4 {
+            background: var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 50px;
+        }
+        
+        .slide-4 h1 {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .slide-4 .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 28px;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight);
+        }
+        
+        .step-item .step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--highlight);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-item .step-content {
+            font-size: 14px;
+            color: white;
+            line-height: 1.4;
+        }
+        
+        .slide-4 .quote-box {
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid var(--highlight);
+            padding: 14px 24px;
+            border-radius: 0 8px 8px 0;
+            max-width: 650px;
+        }
+        
+        .slide-4 .quote-box p {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            color: white;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Slide 5 - References */
+        .slide-5 {
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .references-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 60px;
+        }
+        
+        .ref-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .ref-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .ref-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .ref-details h3 {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            color: var(--primary-blue);
+            margin: 0;
+        }
+        
+        .ref-details a {
+            font-size: 13px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .ref-details a:hover {
+            text-decoration: underline;
+        }
+        
+        .ref-details .app-link {
+            background: var(--highlight);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 12px;
+            margin-top: 2px;
+            align-self: flex-start;
+        }
+        
+        .ref-details .app-link:hover {
+            background: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        .contact-footer {
+            padding: 12px 60px 16px 60px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .contact-footer p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide slide-1">
+    <h1>Demo Over Deck</h1>
+    <p class="subtitle">AI-Assisted MVPs for New Venture Design</p>
+    
+    <div class="tagline-box">
+        <p class="tagline">A live demo URL creates learning, clarity, and credibility<br>faster than twenty slides.</p>
+    </div>
+    
+    <p class="author">Rumpa Giri</p>
+    <p class="role">Prepared for Faculty Presentation at HPU</p>
+    
+    <div class="accent-bar"></div>
+    <span class="slide-number">1 / 5</span>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide slide-2">
+    <div class="slide-header">
+        <h1>The Problem</h1>
+        <p>Why so many good ideas die in PowerPoint</p>
+    </div>
+    
+    <div class="content">
+        <div class="comparison-panel panel-traditional">
+            <span class="panel-label label-gray">Traditional</span>
+            <p class="panel-number">20-30 slides</p>
+            <p class="panel-desc">explaining an idea</p>
+            <p class="panel-footnote">Slides delay learning</p>
+        </div>
+        
+        <div class="vs-divider">vs</div>
+        
+        <div class="comparison-panel panel-demo">
+            <span class="panel-label label-blue">Demo-First</span>
+            <p class="panel-number">1 working URL</p>
+            <p class="panel-desc">that users can react to</p>
+            <p class="panel-footnote">Demos accelerate learning</p>
+        </div>
+    </div>
+    
+    <div class="footer-quote">
+        <div class="quote-box">
+            <p>"This is not about AI replacing thinking. It's about removing the friction between thinking and feedback."</p>
+        </div>
+    </div>
+    
+    <span class="slide-number slide-number-dark">2 / 5</span>
+</div>
+
+<!-- Slide 3: The Shift -->
+<div class="slide slide-3">
+    <div class="slide-header">
+        <h1>The Shift: Intent Before Code</h1>
+        <p>From guessing to testing with a simple framework</p>
+    </div>
+    
+    <div class="content">
+        <div class="left-panel">
+            <span class="section-label">Spreadsheet Sketch</span>
+            
+            <div class="spreadsheet">
+                <div class="spreadsheet-header">
+                    <div>Entity</div>
+                    <div>Attributes</div>
+                    <div>Storage</div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div>Patient</div>
+                    <div>name, room, status</div>
+                    <div>CSV</div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div>ShiftNote</div>
+                    <div>patient, nurse, note</div>
+                    <div>CSV</div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div>View</div>
+                    <div>weekly by nurse</div>
+                    <div>—</div>
+                </div>
+            </div>
+            
+            <p class="spreadsheet-caption">If you can't explain it in a table, it's not ready to build</p>
+        </div>
+        
+        <div class="right-panel">
+            <div class="insight-box">
+                <p>I am not here to turn MBA students into software engineers.</p>
+                <p>I am here to turn them into product managers who can test their ideas themselves.</p>
+            </div>
+            
+            <div class="loop-box">
+                <p class="loop-title">The Loop</p>
+                <div class="loop-step">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Write intent (spreadsheet)</span>
+                </div>
+                <div class="loop-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Refine with AI (Claude)</span>
+                </div>
+                <div class="loop-step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Deploy and get feedback</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Time: 30 min to sketch intent, 2.5 hours to iterate with Claude Code</p>
+    </div>
+    
+    <span class="slide-number slide-number-dark">3 / 5</span>
+</div>
+
+<!-- Slide 4: The Learning Loop -->
+<div class="slide slide-4">
+    <h1>The Learning Loop</h1>
+    <p class="subtitle">From idea to live demo</p>
+    
+    <div class="steps-container">
+        <div class="step-item">
+            <span class="step-num">1</span>
+            <span class="step-content">Export intent in a spreadsheet</span>
+        </div>
+        <div class="step-item">
+            <span class="step-num">2</span>
+            <span class="step-content">Draft Claude Code prompt from the final idea mockup</span>
+        </div>
+        <div class="step-item">
+            <span class="step-num">3</span>
+            <span class="step-content">Iterate on fixes post code creation</span>
+        </div>
+        <div class="step-item">
+            <span class="step-num">4</span>
+            <span class="step-content">Deploy to Netlify with a custom URL to make the dynamic website shareable</span>
+        </div>
+    </div>
+    
+    <div class="quote-box">
+        <p>"The demo teaches the student more than any pitch feedback ever could."</p>
+    </div>
+    
+    <span class="slide-number">4 / 5</span>
+</div>
+
+<!-- Slide 5: References -->
+<div class="slide slide-5">
+    <div class="slide-header" style="padding: 20px 40px 12px 40px; margin-bottom: 10px;">
+        <h1>References & Live Demos</h1>
+        <p>Explore the methodology and working examples</p>
+    </div>
+    
+    <div class="references-content">
+        <div class="ref-section">
+            <div class="ref-icon">🏠</div>
+            <div class="ref-details">
+                <h3>Demo Over Deck Homepage</h3>
+                <a href="https://codekunoichi.github.io/demo-over-deck/" target="_blank">codekunoichi.github.io/demo-over-deck/</a>
+            </div>
+        </div>
+        
+        <div class="ref-section">
+            <div class="ref-icon">📋</div>
+            <div class="ref-details">
+                <h3>Nursing Shift Notes</h3>
+                <a href="https://codekunoichi.github.io/demo-over-deck/shift-notes/overview.html" target="_blank">Overview & Methodology</a>
+                <a href="https://shift-notes-app.netlify.app/" target="_blank" class="app-link">🚀 Live Application</a>
+            </div>
+        </div>
+        
+        <div class="ref-section">
+            <div class="ref-icon">💪</div>
+            <div class="ref-details">
+                <h3>HEP Tracker</h3>
+                <a href="https://codekunoichi.github.io/demo-over-deck/hep-tracker/overview.html" target="_blank">Overview & Methodology</a>
+                <a href="https://splendorous-beignet-9d65a1.netlify.app/" target="_blank" class="app-link">🚀 Live Application</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-footer">
+        <p>Rumpa Giri • giri.rumpa2017@gmail.com • linkedin.com/in/rgiri</p>
+    </div>
+    
+    <span class="slide-number slide-number-dark">5 / 5</span>
+</div>
+
+</body>
+</html>
